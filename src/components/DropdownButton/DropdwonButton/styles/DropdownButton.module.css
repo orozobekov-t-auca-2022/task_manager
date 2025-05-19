@@ -1,0 +1,42 @@
+.dropBtn {
+    background-color: #6C63FF;
+    width: 85px;
+    height: 38px;
+    border-radius: 5px;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    width: 6px;
+    height: 3px;
+    color: white;
+}
+.list{
+    background-color: #F7F7F7;
+    width: 93px;
+    height: 84px;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    color: #6C63FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list ul{
+    list-style-type: none;
+    padding: 0;
+    cursor: pointer;
+}
+.list ul li{
+    font-family: "Kanit", sans-serif;
+}
+.list ul li:hover{
+    background-color: rgba(108, 99, 255, 0.2);
+}

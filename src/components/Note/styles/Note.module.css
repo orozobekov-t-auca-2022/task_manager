@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    width: 520px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #6C63FF;
+}
+.container h2{
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    text-transform: uppercase;
+    color: #252525;
+    width: 420px;
+    height: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+.editIcon:hover .editBtn{
+    stroke: #6C63FF;
+}
+.deleteIcon .iconGroup {
+    stroke: #CDCDCD;
+    fill: none;
+}
+.deleteIcon:hover .iconGroup {
+    stroke: #E50000;
+}
