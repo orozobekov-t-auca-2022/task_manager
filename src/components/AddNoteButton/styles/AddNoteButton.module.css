@@ -10,30 +10,34 @@
     margin-left: 692px;
     cursor: pointer;
 }
-.addFormContainer{
-    background-color: white;
+.container{
+    display: flex;
+    justify-content: center;
     width: 500px;
-    height: 289px;
-    border-radius: 5px;
-    padding-top: 18px;
+    background-color: white;
+    border-radius: 20px;
 }
-.addFormContainer h3{
+.addForm{
+    width: 440px;
+}
+.addForm h3{
     font-family: "Kanit", sans-serif;
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
     font-size: 24px;
-    margin: 0 0 25px 0;
+    margin: 18px 0 25px 0;
 }
 .addFormInput{
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .buttonOptions{
     width: 440px;
     display: flex;
     justify-content: space-between;
-    margin: 128px auto 0 auto;
+    margin: 20px auto 10px auto;
 }
 .addFormBtn{
     background-color: #6C63FF;
@@ -72,4 +76,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.dateField{
+    margin: 10px 0 0 0;
 }
