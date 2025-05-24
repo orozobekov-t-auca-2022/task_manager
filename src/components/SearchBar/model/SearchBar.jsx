@@ -6,7 +6,7 @@ import TextField from '../../../widgets/TextField/module/TextField';
 function SearchBar() {
     return (
         <div className={styles.container}>
-            <TextField hasSearchIcon={true} placeholder={"Search note..."} width={"595px"}/>
+            <TextField hasSearchIcon={true} placeholder={"Search note..."} className={styles.textField}/>
             <DropDownButton/>
             <SwitchThemeButton/>
         </div>

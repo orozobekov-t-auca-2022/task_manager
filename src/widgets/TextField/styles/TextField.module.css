@@ -21,3 +21,10 @@
     height: 24px;
     width: 24px;
 }
+@media screen and (max-width: 460px) {
+    .icon {
+        right: 6px;
+        height: 15px;
+        width: 15px;
+    }
+}

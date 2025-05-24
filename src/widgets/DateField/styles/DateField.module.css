@@ -5,3 +5,8 @@
     font-size: 15px;
     border-radius: 5px;
 }
+@media screen and (max-width: 450px) {
+    .inputField{
+        font-size: 12px;
+    }
+}

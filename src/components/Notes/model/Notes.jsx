@@ -16,7 +16,7 @@ function Notes() {
     }, [])
 
     return(
-        <div>
+        <div className={styles.listContainer}>
             {noteList.length > 0 ? (noteList.map((key, index) => (
                 <div className={styles.list} key={noteList[index].id}>
                     <Note note={noteList[index]} selectedIndex={index}/>

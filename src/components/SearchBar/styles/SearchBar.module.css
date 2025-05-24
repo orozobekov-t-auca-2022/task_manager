@@ -4,3 +4,54 @@
     width: 750px;
     margin: 0 auto;
 }
+.textField{
+    width: 595px;
+    flex: 1;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+@media screen and (min-width: 760px) {
+    .textField{
+        width: 595px;
+    }
+}
+@media screen and (max-width: 760px) {
+    .container{
+        width: 600px;
+    }
+    .textField{
+        width: 445px;   
+    }
+}
+@media screen and (max-width: 610px) {
+    .container{
+        width: 450px;
+    }
+    .textField{
+        width: 300px;   
+    }
+}
+@media screen and (max-width: 460px) {
+    .container{
+        width: 300px;
+    }
+    .textField{
+        width: 200px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 310px) {
+    .container{
+        width: 250px;
+    }
+    .textField{
+        width: 150px;
+        height: 30px;
+        font-size: 12px;
+    }
+}

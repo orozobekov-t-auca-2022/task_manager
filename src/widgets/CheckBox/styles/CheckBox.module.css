@@ -26,3 +26,13 @@
     border-color: white;
     border-style: solid;
 }
+@media screen and (max-width: 450px) {
+    .input{
+        width: 16px;
+        height: 16px;
+    }
+    .input:checked::after{
+        height: 8px;
+        width: 3px;
+    }
+}

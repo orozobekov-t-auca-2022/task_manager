@@ -33,13 +33,16 @@
 }
 .editIcon:hover .editBtn{
     stroke: #6C63FF;
+    z-index: 1;
 }
 .deleteIcon .iconGroup {
     stroke: #CDCDCD;
     fill: none;
+    z-index: 1;
 }
 .deleteIcon:hover .iconGroup {
     stroke: #E50000;
+    z-index: 1;
 }
 .formContainer{
     display: flex;
@@ -63,6 +66,13 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    width: 440px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    font-family: "Inter", sans-serif;
+    outline: none;
+    font-size: 16px;
 }
 .buttonOptions{
     width: 440px;
@@ -107,7 +117,134 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 }
 .dateField{
     margin: 10px 0 0 0;
+}
+.addFormDescription{
+    width: 440px;
+    flex: 1;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #6C63FF;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 640px) {
+    .container{
+        width: 400px;
+    }
+    .ordinaryTitle{
+        width: 300px;
+    }
+    .crossedTitle{
+        width: 300px;
+    }
+    .formContainer{
+        width: 450px;
+    }
+    .addFormInput{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        border: 1px solid #6C63FF;
+        font-family: "Inter", sans-serif;
+        outline: none;
+    }
+    .addFormDescription{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .buttonOptions{
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto 10px auto;
+    }
+    .dateField{
+        width: 400px;
+        margin: 10px auto 0 auto;
+    }
+    .addForm h3{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 540px) {
+    .container{
+        width: 300px;
+    }
+    .ordinaryTitle{
+        width: 200px;
+    }
+    .crossedTitle{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 460px) {
+    .container{
+        width: 200px;
+        padding-bottom: 8px;
+    }
+    .ordinaryTitle{
+        width: 100px;
+        font-size: 10px;
+    }
+    .crossedTitle{
+        width: 100px;
+        font-size: 10px;
+    }
+    .editIcon svg {
+        width: 10px;
+        height: 10px;
+    }
+    .deleteIcon svg{
+        width: 10px;
+        height: 10px;
+    }
+    .formContainer{
+        width: 350px;
+    }
+    .addForm h3{
+        font-size: 20px;
+        margin: 20px auto 8px auto;
+    }
+    .addFormInput{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+        font-size: 12px;
+    }
+    .addFormDescription{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .buttonOptions{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto 10px auto;
+    }
+    .dateField{
+        width: 300px;
+        margin: 10px auto 0 auto;
+    }
+    .addForm h3{
+        width: 300px;
+    }
+    .addFormBtn{
+        height: 30px;
+        font-size: 15px;
+    }
+    .cancelFormBtn{
+        height: 30px;
+        font-size: 15px;
+    }
 }

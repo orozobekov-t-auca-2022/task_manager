@@ -75,12 +75,8 @@ function Note(props){
                         <div className={styles.formContainer}>
                             <form className={styles.addForm} onSubmit={handleSubmit(onSave)}>
                                 <h3>New Note</h3>
-                                <div className={styles.addFormInput}>
-                                    <TextField hasSearchIcon={false} placeholder={"Input your note..."} width={"440px"} {...register('title')}/>
-                                </div>
-                                <div>
-                                    <DescriptionField placeholder={"Add description..."} width={"440px"} {...register('description')}/>
-                                </div>
+                                <TextField className={styles.addFormInput} hasSearchIcon={false} placeholder={"Input your note..."} {...register('title')}/>
+                                <DescriptionField className={styles.addFormDescription} placeholder={"Add description..."} {...register('description')}/>
                                 <div className={styles.dateField}>
                                     <DateField {...register('deadline')}/>
                                 </div>

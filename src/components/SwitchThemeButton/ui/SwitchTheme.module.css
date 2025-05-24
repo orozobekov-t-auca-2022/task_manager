@@ -5,4 +5,16 @@
     width: 38px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width: 450px) {
+    .btn {
+        height: 30px;
+    }
+    .btn img{
+        width: 15px;
+        height: 15px;
+    }
 }
