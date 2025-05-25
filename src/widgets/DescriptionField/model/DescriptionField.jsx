@@ -5,8 +5,8 @@ const DescriptionField = React.forwardRef(
     function DescriptionField(props, ref) {
         const { placeholder, ...rest} = props;
         return(
-            
-                <textarea type="text" className={styles.descriptionInput} placeholder={placeholder} ref={ref} {...rest}/>        )
+                <textarea type="text" className={styles.descriptionInput} placeholder={placeholder} ref={ref} {...rest}/>        
+            )
     }
 )
 

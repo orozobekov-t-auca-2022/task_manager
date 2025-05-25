@@ -8,48 +8,40 @@ import { useForm } from "react-hook-form";
 import TextField from "../../../widgets/TextField/module/TextField";
 import DescriptionField from "../../../widgets/DescriptionField/model/DescriptionField";
 import DateField from "../../../widgets/DateField/model/DateField";
+import { useDispatch } from "react-redux";
+import { editNote, removeNote, changeTaskStatus } from "../../Notes/slice/noteSlice";
 
 function Note(props){
+    const dispatch = useDispatch();
     const [clickedEdit, setClickedEdit] = useState(false);
     const {register, handleSubmit} = useForm({
             defaultValues: props.note
             // resolver: yupResolver(schema)
         });
     function changeStatus(){
-        const noteList = JSON.parse(localStorage.getItem('notes')) || [];
-        noteList[props.selectedIndex].status = noteList[props.selectedIndex].status === NoteStatus.DONE ? NoteStatus.NEW : NoteStatus.DONE;
-        localStorage.setItem('notes', JSON.stringify(noteList));
+        dispatch(changeTaskStatus(props.note));
         window.dispatchEvent(new Event('notes-updated'))
     }
     function removeTask(){
-        const noteList = JSON.parse(localStorage.getItem('notes')) || [];
-        noteList.splice(props.index, 1);
-        localStorage.setItem('notes', JSON.stringify(noteList));
-        window.dispatchEvent(new Event('notes-updated'))
+        dispatch(removeNote(props.selectedIndex));
+        window.dispatchEvent(new Event('notes-updated'));
     }
     function closeForm(){
         setClickedEdit(false);
     }
     function onSave(data) {
-        console.log(JSON.stringify(data));
-        const localNotes = JSON.parse(localStorage.getItem('notes')) || [];
-        if(props.selectedIndex < 0 || props.selectedIndex >= localNotes.length) {
-            return;
+        const formData = {
+            "data": data,
+            "index": props.selectedIndex
         }
-        localNotes[props.selectedIndex] = {
-            ...localNotes[props.selectedIndex],
-            title: data.title,
-            description: data.description,
-            deadline: data.deadline
-        }
-        localStorage.setItem('notes', JSON.stringify(localNotes));
+        dispatch(editNote(formData))
         window.dispatchEvent(new Event('notes-updated'));
         setClickedEdit(false);
     }
     
     return(
         <>
-            <div className={styles.container}>
+            <div className={styles.container} style={props.style}>
                 <CheckBox onChange={changeStatus} status={props.note.status}/>
                 <h2 className={(props.note.status === NoteStatus.DONE) ? (styles.crossedTitle) : (styles.ordinaryTitle)}>{props.note.title}</h2>
                 <div className={styles.editIcon} onClick={() => {setClickedEdit(true)}}>

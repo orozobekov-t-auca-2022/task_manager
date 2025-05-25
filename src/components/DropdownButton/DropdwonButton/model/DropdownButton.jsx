@@ -1,12 +1,16 @@
 import styles from '../styles/DropDownButton.module.css'
 import { useState } from 'react';
+import {useDispatch} from 'react-redux'
+import { showAll, showIncompleted, showCompleted } from '../../../Notes/slice/noteSlice';
 
 function DropDownButton() {
-    let [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(false);
+    const dispatch = useDispatch();
 
     const toggleList = () => {
         setOpen((prev) => !prev);
     }
+    
     return (
         <div>
             <button className={styles.dropBtn} onClick={toggleList}>ALL
@@ -26,9 +30,9 @@ function DropDownButton() {
             {isOpen && (
                 <div className={styles.list}>
                     <ul>
-                        <li>ALL</li>
-                        <li>Complete</li>
-                        <li>Incomplete</li>
+                        <li onClick={() => dispatch(showAll())}>ALL</li>
+                        <li onClick={() => dispatch(showCompleted())}>Complete</li>
+                        <li onClick={() => dispatch(showIncompleted())}>Incomplete</li>
                     </ul>
                 </div>
             )}

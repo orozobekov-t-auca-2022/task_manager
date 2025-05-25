@@ -1,0 +1,26 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #252525;
+    --border-color: #6C63FF;
+    --input: #F7F7F7;
+    --crossedNote: rgb(37, 37, 37, 0.5);
+}
+
+.dark {
+    --bg-color: #252525;
+    --text-color: #F7F7F7;
+    --border-color: #F7F7F7;
+    --input: #252525;
+    --crossedNote: rgb(255, 255, 255, 0.5);
+}
+
+html, body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"], input[type="date"], textarea {
+    background-color: var(--text-input); 
+}

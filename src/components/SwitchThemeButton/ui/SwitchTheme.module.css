@@ -8,6 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #6C63FF;
+}
+.btn:hover{
+    background-color: #5850DD;
 }
 @media screen and (max-width: 450px) {
     .btn {

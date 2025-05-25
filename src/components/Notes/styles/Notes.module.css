@@ -3,6 +3,24 @@
     justify-content: center;
     margin-top: 30px;
 }
+.noNotesContainer{
+    margin: 30px 0 20px 0;
+}
+.noNotesSection{
+    display: flex;
+    justify-content: center;
+}
+.noNotesSection img{
+    margin: 0 auto;
+    width: 221px;
+    height: 174px;
+}
+.noNotesSection h3{
+    margin: 0 auto;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
 @media screen and (min-width: 760px) {
     .container{
         width: 520px;
@@ -11,5 +29,14 @@
 @media screen and (max-width: 760px) {
     .container{
         width: 400px;
+    }
+}
+@media screen and (max-width: 460px) {
+    .noNotesSection img{
+        width: 121px;
+        height: 94px;
+    }
+    .noNotesSection h3{
+        font-size: 15px;
     }
 }

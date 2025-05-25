@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react";
 import Note from "../../Note/model/Note";
 import styles from "../styles/Notes.module.css"
+import noNotes from "../../../assets/DetectiveCheckFootprint.png"
+import { useSelector } from "react-redux";
 
 function Notes() {
-    const [noteList, setNoteList] = useState([]);
-    useEffect(() =>{
-        function loadNotes() {
-            setNoteList(JSON.parse(localStorage.getItem('notes')) || []);
-        }
-        window.addEventListener('notes-updated', loadNotes);
-        loadNotes();
-        return () => {
-            window.removeEventListener('notes-updated', loadNotes);
-        }
-    }, [])
-
+    const notes = useSelector((state) => state.notes.visibleNotes)
+    
     return(
         <div className={styles.listContainer}>
-            {noteList.length > 0 ? (noteList.map((key, index) => (
-                <div className={styles.list} key={noteList[index].id}>
-                    <Note note={noteList[index]} selectedIndex={index}/>
+            {notes ? (notes.map((key, index) => (
+                <div className={styles.list} key={notes[index].id}>
+                    <Note note={notes[index]} selectedIndex={index} style={index !== notes.length - 1 ? { borderBottom: "1px solid #6C63FF" } : {}}/>
                 </div>)
                 )
             ) : (
-                <>loading</>
+                <div className={styles.noNotesContainer}>
+                    <div className={styles.noNotesSection}>
+                        <img src={noNotes} alt="" />
+                    </div>
+                    <div className={styles.noNotesSection}>
+                        <h3>Empty...</h3>
+                    </div>
+                </div>
             )}
         </div>
     )

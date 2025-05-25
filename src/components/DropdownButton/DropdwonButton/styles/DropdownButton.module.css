@@ -12,7 +12,10 @@
     border: none;
     cursor: pointer;
 }
-
+.dropBtn:hover{
+    background-color: #5850DD;
+    border: 1px solid #6C63FF;
+}
 .icon {
     width: 6px;
     height: 3px;

@@ -9,11 +9,16 @@
     flex: 1;
     height: 38px;
     border-radius: 5px;
-    border: 1px solid #6C63FF;
+    border: 1px solid var(--border-color);
     font-family: "Inter", sans-serif;
     font-size: 16px;
     outline: none;
+    padding-left: 16px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    color: var(--text-color);
 }
+
 @media screen and (min-width: 760px) {
     .textField{
         width: 595px;
@@ -24,7 +29,7 @@
         width: 600px;
     }
     .textField{
-        width: 445px;   
+        width: 445px;
     }
 }
 @media screen and (max-width: 610px) {
@@ -43,6 +48,7 @@
         width: 200px;
         height: 30px;
         font-size: 12px;
+        padding-left: 4px;
     }
 }
 @media screen and (max-width: 310px) {
@@ -53,5 +59,6 @@
         width: 150px;
         height: 30px;
         font-size: 12px;
+        padding-left: 2px;
     }
 }

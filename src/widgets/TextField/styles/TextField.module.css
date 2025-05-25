@@ -3,23 +3,35 @@
     align-items: center;
     position: relative;
 }
-
 .input {
     flex: 1;
     height: 38px;
     border-radius: 5px;
-    border: 1px solid #6C63FF;
+    border: 1px solid var(--border-color);
     font-family: "Inter", sans-serif;
     font-size: 16px;
     outline: none;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 40px;
+    width: 100%;
+    background-color: var(--text-color);
 }
-
 .icon {
     position: absolute;
     right: 16px;
     cursor: pointer;
     height: 24px;
     width: 24px;
+    pointer-events: none;
+}
+.inputError {
+    border: 1px solid red;
+}
+.helperText {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
 }
 @media screen and (max-width: 460px) {
     .icon {
