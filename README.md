@@ -7,7 +7,7 @@
 # Чтобы начать программу
 
 Введите следующие команды к себе в терминал(GitBash)
-1. склонируйте репозиторий -> git clone https://github.com/orozobekov-t-auca-2022/todolist.git
+1. склонируйте репозиторий -> git clone https://github.com/orozobekov-t-auca-2022/task_manager.git
 2. скачайте зависимости    -> npm install
 3. запустите программу     -> npm run dev
 
