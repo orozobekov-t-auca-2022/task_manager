@@ -13,3 +13,12 @@
     font-size: 12px;
     outline: none;
 }
+.helperText {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+}
+.error{
+    border: 1px solid red;
+}

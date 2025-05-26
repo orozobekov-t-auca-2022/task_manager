@@ -70,9 +70,10 @@ export const noteSlice = createSlice({
                 description: action.payload.data.description,
                 deadline: action.payload.data.deadline
             }
+            
             for(let i = 0; i < state.notes.length; i++) {
                 if (state.notes[i].id === state.visibleNotes[action.payload.index].id) {
-                    state.notes[i] = state.visibleNotes[action.payload];
+                    state.notes[i] = state.visibleNotes[action.payload.index];
                     break;
                 }
             }

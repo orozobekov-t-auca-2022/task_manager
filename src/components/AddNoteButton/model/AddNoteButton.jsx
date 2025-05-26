@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/AddNoteButton.module.css'
-import TextField from '../../../widgets/TextField/module/TextField';
+import TextField from '../../../widgets/TextField/ui/TextField';
 import { useForm } from 'react-hook-form';
 import DescriptionField from '../../../widgets/DescriptionField/model/DescriptionField';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -32,6 +32,7 @@ function AddNoteButton(){
         }
         dispatch(addNote(formData))
         window.dispatchEvent(new Event('notes-updated'));
+        setFormOpen(false);
     }
     return(
         <div>
@@ -47,9 +48,9 @@ function AddNoteButton(){
                             <form className={styles.addForm} onSubmit={handleSubmit(onSubmit)}>
                                 <h3>New Note</h3>
                                 <TextField className={styles.addFormInput} error={!!errors.title} hasSearchIcon={false} placeholder={"Input your note..."} width={"440px"} helperText={errors.title?.message} {...register('title', {required: 'Title is required'})}/>
-                                <DescriptionField className={styles.addFormDescription} placeholder={"Add description..."} {...register('description', {required: 'Description is required'})}/>
+                                <DescriptionField className={styles.addFormDescription} error={!!errors.title} placeholder={"Add description..."} helperText={errors.description?.message} {...register('description', {required: 'Description is required'})}/>
                                 <div className={styles.dateField}>
-                                    <DateField {...register('deadline', {required: 'Deadline is required'})}/>
+                                    <DateField {...register('deadline', {required: 'Deadline is required'})} error={!!errors.title} helperText={errors.deadline?.message}/>
                                 </div>
                                 <div className={styles.buttonOptions}>
                                     <button onClick={closeForm} className={styles.cancelFormBtn}>cancel</button>
@@ -58,7 +59,6 @@ function AddNoteButton(){
                             </form>
                         </div>
                     </div>
-                    
                 )
             }
         </div>

@@ -3,9 +3,16 @@ import styles from '../styles/DateField.module.css'
 
 const DateField = React.forwardRef(
     function DateField(props, ref) {
-        const {...rest} = props;
+        const {helperText, error, ...rest} = props;
         return(
-                <input type="date" ref={ref} {...rest} placeholder='Put deadline' className={styles.inputField}/>
+            <>
+                <div>
+                    <input type="date" ref={ref} {...rest} placeholder='Put deadline' className={`${styles.inputField} ${error ? styles.error : ''}`}/>
+                </div>
+                {helperText && 
+                    <div className={styles.helperText}>{helperText}</div>
+                }
+            </>
         )
     }
 )

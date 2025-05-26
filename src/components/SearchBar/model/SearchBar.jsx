@@ -1,9 +1,9 @@
 import styles from '../styles/SearchBar.module.css';
 import DropDownButton from '../../DropdownButton/DropdwonButton/model/DropdownButton';
 import SwitchThemeButton from '../../SwitchThemeButton/model/SwitchThemeButton';
-import TextField from '../../../widgets/TextField/module/TextField';
 import { useDispatch } from 'react-redux';
 import { filterOnType } from '../../Notes/slice/noteSlice';
+import TextField from '../../../widgets/TextField/ui/TextField';
 
 function SearchBar() {
     const dispatch = useDispatch();

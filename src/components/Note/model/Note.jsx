@@ -3,20 +3,20 @@ import styles from "../styles/Note.module.css"
 import { NoteStatus } from "../config/NoteStatus";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { schema } from "../../config/schema";
-import TextField from "../../../widgets/TextField/module/TextField";
+import { yupResolver } from "@hookform/resolvers/yup";
+import TextField from "../../../widgets/TextField/ui/TextField";
 import DescriptionField from "../../../widgets/DescriptionField/model/DescriptionField";
 import DateField from "../../../widgets/DateField/model/DateField";
 import { useDispatch } from "react-redux";
 import { editNote, removeNote, changeTaskStatus, showUndo } from "../../Notes/slice/noteSlice";
+import { schema } from "../../config/schema";
 
 function Note(props){
     const dispatch = useDispatch();
     const [clickedEdit, setClickedEdit] = useState(false);
-    const {register, handleSubmit} = useForm({
-            defaultValues: props.note
-            // resolver: yupResolver(schema)
+    const {register, handleSubmit, formState: { errors }} = useForm({
+            defaultValues: props.note,
+            resolver: yupResolver(schema)
         });
     function changeStatus(){
         dispatch(changeTaskStatus(props.note));
@@ -34,6 +34,7 @@ function Note(props){
         setClickedEdit(false);
     }
     function onSave(data) {
+        data.deadline = data.deadline.toISOString()
         const formData = {
             "data": data,
             "index": props.selectedIndex
@@ -71,10 +72,10 @@ function Note(props){
                         <div className={styles.formContainer}>
                             <form className={styles.addForm} onSubmit={handleSubmit(onSave)}>
                                 <h3>New Note</h3>
-                                <TextField className={styles.addFormInput} hasSearchIcon={false} placeholder={"Input your note..."} {...register('title')}/>
-                                <DescriptionField className={styles.addFormDescription} placeholder={"Add description..."} {...register('description')}/>
+                                <TextField className={styles.addFormInput} hasSearchIcon={false} placeholder={"Input your note..."} {...register('title')} error={!!errors.title} helperText={errors.title?.message}/>
+                                <DescriptionField className={styles.addFormDescription} placeholder={"Add description..."} {...register('description')}  error={!!errors.description} helperText={errors.description?.message}/>
                                 <div className={styles.dateField}>
-                                    <DateField {...register('deadline')}/>
+                                    <DateField {...register('deadline')} error={!!errors.deadline} helperText={errors.deadline?.message}/>
                                 </div>
                                 <div className={styles.buttonOptions}>
                                     <button onClick={closeForm} className={styles.cancelFormBtn}>cancel</button>

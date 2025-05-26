@@ -8,6 +8,15 @@
     padding-left: 16px;
     box-sizing: border-box;
 }
+.helperText {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+}
+.error{
+    border: 1px solid red;
+}
 @media screen and (max-width: 450px) {
     .inputField{
         font-size: 12px;
