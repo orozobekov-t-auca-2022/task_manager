@@ -1,12 +1,15 @@
 import styles from '../ui/SwitchTheme.module.css'
 import { useContext } from 'react';
 import { ThemeContext } from '../../../app/providers/ThemeProvider';
+import { useDispatch } from 'react-redux';
+import { changeNoNotesImage } from '../../Notes/slice/noteSlice';
 
 function SwitchThemeButton() {
     const { toggleTheme, theme } = useContext(ThemeContext);
+    const dispatch = useDispatch();
 
     return(
-        <button onClick={toggleTheme} className={styles.btn}>
+        <button onClick={() => {toggleTheme(); dispatch(changeNoNotesImage())}} className={styles.btn}>
             {
                 (theme !== 'dark') ? (
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

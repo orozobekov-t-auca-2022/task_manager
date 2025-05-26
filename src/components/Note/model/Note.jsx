@@ -9,7 +9,7 @@ import TextField from "../../../widgets/TextField/module/TextField";
 import DescriptionField from "../../../widgets/DescriptionField/model/DescriptionField";
 import DateField from "../../../widgets/DateField/model/DateField";
 import { useDispatch } from "react-redux";
-import { editNote, removeNote, changeTaskStatus } from "../../Notes/slice/noteSlice";
+import { editNote, removeNote, changeTaskStatus, showUndo } from "../../Notes/slice/noteSlice";
 
 function Note(props){
     const dispatch = useDispatch();
@@ -23,6 +23,10 @@ function Note(props){
         window.dispatchEvent(new Event('notes-updated'))
     }
     function removeTask(){
+        dispatch(showUndo(true));
+        setTimeout(() => {
+            dispatch(showUndo(false));
+        }, 3000)
         dispatch(removeNote(props.selectedIndex));
         window.dispatchEvent(new Event('notes-updated'));
     }
@@ -78,8 +82,7 @@ function Note(props){
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    
+                    </div>  
                 )
             }
         </>

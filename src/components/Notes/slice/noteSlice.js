@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { NoteStatus } from '../../Note/config/NoteStatus';
+import noNotes from "../../../assets/DetectiveCheckFootprint.png";
+import darkNoNotesImage from '../../../assets/darkNoNotesImage.png'
 
 export const noteSlice = createSlice({
     name: 'noteList',
@@ -8,6 +10,10 @@ export const noteSlice = createSlice({
         visibleNotes: JSON.parse(localStorage.getItem('notes')),
         baseVisibleNotes: JSON.parse(localStorage.getItem('notes')),
         filter: "All",
+        noNotesImage: noNotes,
+        undo: false,
+        lastDeletedVisibleNotes: null,
+        lastDeletedNotes: null
     },
     reducers: {
         showAll: (state) => {
@@ -43,6 +49,8 @@ export const noteSlice = createSlice({
             localStorage.setItem('notes', JSON.stringify(state.notes));
         },
         removeNote: (state, action) => {
+            state.lastDeletedNotes = state.notes.map(note => ({ ...note }));
+            state.lastDeletedVisibleNotes = state.visibleNotes.map(note => ({ ...note }));
             for(let i = 0; i < state.notes.length; i++) {
                 if (state.notes[i].id === state.visibleNotes[action.payload].id) {
                     state.notes.splice(i, 1);
@@ -94,9 +102,22 @@ export const noteSlice = createSlice({
                 }
             }
             localStorage.setItem('notes', JSON.stringify(state.notes));
+        },
+        changeNoNotesImage: (state) => {
+            state.noNotesImage = (state.noNotesImage === noNotes) ? darkNoNotesImage : noNotes;
+        },
+        showUndo: (state, action) => {
+            state.undo = action.payload;
+        },
+        undoRemoving: (state) => {
+            state.notes = state.lastDeletedNotes.map(note => ({ ...note }));;
+            state.visibleNotes = state.lastDeletedVisibleNotes.map(note => ({ ...note }));;
+            localStorage.setItem('notes', JSON.stringify(state.notes));
+            state.lastDeletedNotes = null;
+            state.lastDeletedVisibleNotes = null;
         }
     }
 })
 
-export const { showAll, showCompleted, showIncompleted, addNote, removeNote, editNote, filterOnType, changeTaskStatus } = noteSlice.actions
+export const { showAll, showCompleted, showIncompleted, addNote, removeNote, editNote, filterOnType, changeTaskStatus, changeNoNotesImage, showUndo, undoRemoving } = noteSlice.actions
 export default noteSlice.reducer

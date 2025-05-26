@@ -20,10 +20,11 @@
 .icon {
     position: absolute;
     right: 16px;
-    cursor: pointer;
+    cursor: var(--mousePointer);
     height: 24px;
     width: 24px;
     pointer-events: none;
+    stroke: var(--border-color);
 }
 .inputError {
     border: 1px solid red;

@@ -10,7 +10,7 @@
     justify-content: space-between;
     padding: 0 10px;
     border: none;
-    cursor: pointer;
+    cursor: var(--mousePointer);
 }
 .dropBtn:hover{
     background-color: #5850DD;
@@ -36,7 +36,7 @@
 .list ul{
     list-style-type: none;
     padding: 0;
-    cursor: pointer;
+    cursor: var(--mousePointer);
 }
 .list ul li{
     font-family: "Kanit", sans-serif;
