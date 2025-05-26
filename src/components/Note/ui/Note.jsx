@@ -14,7 +14,7 @@ import { schema } from "../../AddNoteButton/model/schema";
 function Note(props){
     const dispatch = useDispatch();
     const [clickedEdit, setClickedEdit] = useState(false);
-    const {register, handleSubmit, formState: { errors }} = useForm({
+    const {register, handleSubmit, formState: { errors }, reset} = useForm({
             defaultValues: props.note,
             resolver: yupResolver(schema)
         });
@@ -32,6 +32,7 @@ function Note(props){
     }
     function closeForm(){
         setClickedEdit(false);
+        reset();
     }
     function onSave(data) {
         data.deadline = data.deadline.toISOString()
@@ -72,9 +73,16 @@ function Note(props){
                         <div className={styles.formContainer}>
                             <form className={styles.addForm} onSubmit={handleSubmit(onSave)}>
                                 <h3>New Note</h3>
-                                <TextField className={styles.addFormInput} hasSearchIcon={false} placeholder={"Input your note..."} {...register('title')} error={!!errors.title} helperText={errors.title?.message}/>
-                                <DescriptionField className={styles.addFormDescription} placeholder={"Add description..."} {...register('description')}  error={!!errors.description} helperText={errors.description?.message}/>
+                                <div>
+                                    <span>Title</span>
+                                    <TextField className={`${styles.addFormInput} ${errors.title ? styles.error : ''}`} hasSearchIcon={false} placeholder={"Input your note..."} {...register('title')} error={!!errors.title} helperText={errors.title?.message}/>
+                                </div>
+                                <div className={styles.description}>
+                                    <span>Description</span>
+                                    <DescriptionField className={`${styles.addFormDescription} ${errors.description ? styles.error : ''}`} placeholder={"Add description..."} {...register('description')}  error={!!errors.description} helperText={errors.description?.message}/>
+                                </div>
                                 <div className={styles.dateField}>
+                                    <span>Deadline</span>
                                     <DateField {...register('deadline')} error={!!errors.deadline} helperText={errors.deadline?.message}/>
                                 </div>
                                 <div className={styles.buttonOptions}>

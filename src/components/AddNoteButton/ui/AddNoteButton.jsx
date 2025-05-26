@@ -48,9 +48,16 @@ function AddNoteButton(){
                         <div className={styles.container}>
                             <form className={styles.addForm} onSubmit={handleSubmit(onSubmit)}>
                                 <h3>New Note</h3>
-                                <TextField className={styles.addFormInput} error={!!errors.title} hasSearchIcon={false} placeholder={"Input your note..."} width={"440px"} helperText={errors.title?.message} {...register('title', {required: 'Title is required'})}/>
-                                <DescriptionField className={styles.addFormDescription} error={!!errors.title} placeholder={"Add description..."} helperText={errors.description?.message} {...register('description', {required: 'Description is required'})}/>
+                                <div>
+                                    <span>Title</span>
+                                    <TextField className={`${styles.addFormInput}  ${errors.title ? styles.error : ''}`} error={!!errors.title} hasSearchIcon={false} placeholder={"Input your note..."} width={"440px"} helperText={errors.title?.message} {...register('title', {required: 'Title is required'})}/>
+                                </div>
+                                <div className={styles.description}>
+                                    <span>Description</span>
+                                    <DescriptionField className={`${styles.addFormDescription} ${errors.description ? styles.error : ''}`} error={!!errors.description} placeholder={"Add description..."} helperText={errors.description?.message} {...register('description', {required: 'Description is required'})}/>
+                                </div>
                                 <div className={styles.dateField}>
+                                    <span>Deadline</span>
                                     <DateField {...register('deadline', {required: 'Deadline is required'})} error={!!errors.title} helperText={errors.deadline?.message}/>
                                 </div>
                                 <div className={styles.buttonOptions}>

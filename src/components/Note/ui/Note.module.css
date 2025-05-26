@@ -73,7 +73,6 @@
 .addFormInput{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
     width: 440px;
     height: 38px;
     border-radius: 5px;
@@ -148,7 +147,12 @@
     padding-left: 16px;
     box-sizing: border-box;
     color: var(--text-color);
+}
+.description{
     margin-top: 20px;
+}
+.error{
+    border: 1px solid red !important;
 }
 @media screen and (max-width: 640px) {
     .container{
