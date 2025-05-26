@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/DateField.module.css'
+import styles from './DateField.module.css'
 
 const DateField = React.forwardRef(
     function DateField(props, ref) {

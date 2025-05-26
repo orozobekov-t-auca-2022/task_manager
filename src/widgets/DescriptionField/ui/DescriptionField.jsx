@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/DescriptionField.module.css'
+import styles from './DescriptionField.module.css'
 
 const DescriptionField = React.forwardRef(
     function DescriptionField(props, ref) {

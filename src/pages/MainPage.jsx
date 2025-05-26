@@ -1,7 +1,7 @@
-import AddNoteButton from "../components/AddNoteButton/model/AddNoteButton"
-import Notes from "../components/Notes/model/Notes"
-import SearchBar from "../components/SearchBar/model/SearchBar"
-import TodoManager from "../components/TodoManager/model/TodoManager"
+import AddNoteButton from "../components/AddNoteButton/ui/AddNoteButton"
+import Notes from "../components/Notes/ui/Notes"
+import SearchBar from "../components/SearchBar/ui/SearchBar"
+import TodoManager from "../components/TodoManager/ui/TodoManager"
 import styles from "./MainPage.module.css"
 
 function MainPage() {

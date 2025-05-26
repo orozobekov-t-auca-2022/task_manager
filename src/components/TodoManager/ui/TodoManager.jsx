@@ -1,6 +1,6 @@
-import AddNoteButton from "../../AddNoteButton/model/AddNoteButton"
-import Notes from "../../Notes/model/Notes"
-import styles from "../ui/TodoManager.module.css"
+import AddNoteButton from "../../AddNoteButton/ui/AddNoteButton"
+import Notes from "../../Notes/ui/Notes"
+import styles from "./TodoManager.module.css"
 import { useSelector } from "react-redux";
 import UndoButton from "../../../widgets/UndoButton/ui/UndoButton";
 

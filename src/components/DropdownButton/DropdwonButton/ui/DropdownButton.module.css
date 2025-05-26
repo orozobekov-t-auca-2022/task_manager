@@ -1,6 +1,6 @@
 .dropBtn {
     background-color: #6C63FF;
-    width: 85px;
+    width: 95px;
     height: 38px;
     border-radius: 5px;
     color: white;
@@ -11,6 +11,7 @@
     padding: 0 10px;
     border: none;
     cursor: var(--mousePointer);
+    text-transform: uppercase;
 }
 .dropBtn:hover{
     background-color: #5850DD;
@@ -24,7 +25,7 @@
 .list{
     position: absolute;
     background-color: #F7F7F7;
-    width: 85px;
+    width: 95px;
     height: 84px;
     border-radius: 5px;
     border: 1px solid #6C63FF;
@@ -37,31 +38,43 @@
     list-style-type: none;
     padding: 0;
     cursor: var(--mousePointer);
+    width: 100%;
 }
 .list ul li{
     font-family: "Kanit", sans-serif;
+    height: 28px;
+    padding-left: 7px;
+    display: flex;
+    align-items: center;
 }
 .list ul li:hover{
     background-color: rgba(108, 99, 255, 0.2);
 }
 @media screen and (min-width: 450px) {
     .dropBtn {
-        width: 85px;
+        width: 95px;
         height: 38px;
     }
     .list{
-        width: 85px;
+        width: 95px;
     }
 }
 @media screen and (max-width: 450px) {
     .dropBtn {
         width: 55px;
         height: 30px;
-        font-size: 15px;
+        font-size: 7px;
+        padding-left: 3px;
     }
     .list{
         width: 55px;
-        height: 55px;
         font-size: 10px;
+    }
+    .list ul li{
+        padding-left: 3px;
+    }
+    .icon {
+        width: 6px;
+        height: 3px;
     }
 }

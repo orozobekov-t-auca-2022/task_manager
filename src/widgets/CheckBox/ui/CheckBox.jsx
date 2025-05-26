@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '../styles/CheckBox.module.css'
-import { NoteStatus } from '../../../components/Note/config/NoteStatus';
+import styles from './CheckBox.module.css'
+import { NoteStatus } from '../../../components/Note/model/NoteStatus';
 
 const CheckBox = React.forwardRef(
     function CheckBox(props, ref){

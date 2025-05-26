@@ -1,8 +1,8 @@
-import styles from '../styles/SearchBar.module.css';
-import DropDownButton from '../../DropdownButton/DropdwonButton/model/DropdownButton';
-import SwitchThemeButton from '../../SwitchThemeButton/model/SwitchThemeButton';
+import styles from './SearchBar.module.css';
+import DropDownButton from '../../DropdownButton/DropdwonButton/ui/DropdownButton';
+import SwitchThemeButton from '../../SwitchThemeButton/ui/SwitchThemeButton';
 import { useDispatch } from 'react-redux';
-import { filterOnType } from '../../Notes/slice/noteSlice';
+import { filterOnType } from '../../Notes/model/noteSlice';
 import TextField from '../../../widgets/TextField/ui/TextField';
 
 function SearchBar() {

@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import styles from '../styles/AddNoteButton.module.css'
+import styles from './AddNoteButton.module.css'
 import TextField from '../../../widgets/TextField/ui/TextField';
 import { useForm } from 'react-hook-form';
-import DescriptionField from '../../../widgets/DescriptionField/model/DescriptionField';
+import DescriptionField from '../../../widgets/DescriptionField/ui/DescriptionField';
 import { yupResolver } from '@hookform/resolvers/yup';
-import DateField from '../../../widgets/DateField/model/DateField';
-import { NoteStatus } from '../../Note/config/NoteStatus';
-import { schema } from '../../config/schema';
+import DateField from '../../../widgets/DateField/ui/DateField';
+import { NoteStatus } from '../../Note/model/NoteStatus';
+import { schema } from '../model/schema';
 import { useDispatch } from 'react-redux';
-import { addNote } from '../../Notes/slice/noteSlice';
+import { addNote } from '../../Notes/model/noteSlice';
 
 function AddNoteButton(){
     const dispatch = useDispatch();
-    const {register, handleSubmit, formState: { errors }} = useForm({
+    const {register, handleSubmit, formState: { errors }, reset} = useForm({
         resolver: yupResolver(schema)
     });
     const [isFormOpen, setFormOpen] = useState(false);
@@ -32,6 +32,7 @@ function AddNoteButton(){
         }
         dispatch(addNote(formData))
         window.dispatchEvent(new Event('notes-updated'));
+        reset();
         setFormOpen(false);
     }
     return(

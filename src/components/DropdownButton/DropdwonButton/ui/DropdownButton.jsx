@@ -1,11 +1,12 @@
-import styles from '../styles/DropDownButton.module.css'
+import styles from './DropDownButton.module.css'
 import { useState } from 'react';
-import {useDispatch} from 'react-redux'
-import { showAll, showIncompleted, showCompleted } from '../../../Notes/slice/noteSlice';
+import {useDispatch, useSelector} from 'react-redux'
+import { showAll, showIncompleted, showCompleted } from '../../../Notes/model/noteSlice';
 
 function DropDownButton() {
     const [isOpen, setOpen] = useState(false);
     const dispatch = useDispatch();
+    const notes = useSelector((state) => state.notes.filter);
 
     const toggleList = () => {
         setOpen((prev) => !prev);
@@ -13,7 +14,7 @@ function DropDownButton() {
     
     return (
         <div>
-            <button className={styles.dropBtn} onClick={toggleList}>ALL
+            <button className={styles.dropBtn} onClick={toggleList}>{notes}
                 {!isOpen ? (
                     <svg width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.63077 4L1.26154 1" stroke="#F7F7F7" strokeLinecap="round" strokeLinejoin="round"/>

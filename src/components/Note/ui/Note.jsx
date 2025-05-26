@@ -1,15 +1,15 @@
-import CheckBox from "../../../widgets/CheckBox/module/CheckBox";
-import styles from "../styles/Note.module.css"
-import { NoteStatus } from "../config/NoteStatus";
+import CheckBox from "../../../widgets/CheckBox/ui/CheckBox";
+import styles from "./Note.module.css"
+import { NoteStatus } from "../model/NoteStatus";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import TextField from "../../../widgets/TextField/ui/TextField";
-import DescriptionField from "../../../widgets/DescriptionField/model/DescriptionField";
-import DateField from "../../../widgets/DateField/model/DateField";
+import DescriptionField from "../../../widgets/DescriptionField/ui/DescriptionField";
+import DateField from "../../../widgets/DateField/ui/DateField";
 import { useDispatch } from "react-redux";
-import { editNote, removeNote, changeTaskStatus, showUndo } from "../../Notes/slice/noteSlice";
-import { schema } from "../../config/schema";
+import { editNote, removeNote, changeTaskStatus, showUndo } from "../../Notes/model/noteSlice";
+import { schema } from "../../AddNoteButton/model/schema";
 
 function Note(props){
     const dispatch = useDispatch();

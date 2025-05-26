@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { NoteStatus } from '../../Note/config/NoteStatus';
 
 const themes = {
     LIGHT: 'light',

@@ -1,8 +1,8 @@
-import styles from '../ui/SwitchTheme.module.css'
+import styles from './SwitchTheme.module.css'
 import { useContext } from 'react';
 import { ThemeContext } from '../../../app/providers/ThemeProvider';
 import { useDispatch } from 'react-redux';
-import { changeNoNotesImage } from '../../Notes/slice/noteSlice';
+import { changeNoNotesImage } from '../../Notes/model/noteSlice';
 
 function SwitchThemeButton() {
     const { toggleTheme, theme } = useContext(ThemeContext);

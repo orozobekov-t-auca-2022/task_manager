@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { NoteStatus } from '../../Note/config/NoteStatus';
+import { NoteStatus } from '../../Note/model/NoteStatus';
 import noNotes from "../../../assets/DetectiveCheckFootprint.png";
 import darkNoNotesImage from '../../../assets/darkNoNotesImage.png'
 
@@ -25,13 +25,13 @@ export const noteSlice = createSlice({
             const filtered = state.notes.filter(note => note.status === NoteStatus.DONE);
             state.visibleNotes = filtered;
             state.baseVisibleNotes = filtered.map(note => ({ ...note }));
-            state.filter = "Incomplete"
+            state.filter = "Complete"
         },
         showIncompleted: (state) => {
             const filtered = state.notes.filter(note => note.status === NoteStatus.NEW);
             state.visibleNotes = filtered;
             state.baseVisibleNotes = filtered.map(note => ({ ...note }));
-            state.filter = "Complete"
+            state.filter = "Incomplete"
         },
         addNote: (state, action) => {
             if(state.notes === null){

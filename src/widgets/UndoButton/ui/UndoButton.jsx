@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styles from './UndoButton.module.css'
 import { useDispatch } from "react-redux"
-import { undoRemoving } from "../../../components/Notes/slice/noteSlice"
+import { undoRemoving } from "../../../components/Notes/model/noteSlice"
 
 const UndoButton = React.forwardRef(
     function UndoButton(props, ref) {

@@ -1,5 +1,5 @@
-import Note from "../../Note/model/Note";
-import styles from "../styles/Notes.module.css"
+import Note from "../../Note/ui/Note";
+import styles from "./Notes.module.css"
 import { useSelector } from "react-redux";
 
 function Notes() {
