@@ -26,7 +26,7 @@ function Note(props){
         dispatch(showUndo(true));
         setTimeout(() => {
             dispatch(showUndo(false));
-        }, 3000)
+        }, 4000)
         dispatch(removeNote(props.selectedIndex));
         window.dispatchEvent(new Event('notes-updated'));
     }

@@ -50,7 +50,7 @@
 .list ul li:hover{
     background-color: rgba(108, 99, 255, 0.2);
 }
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 460px) {
     .dropBtn {
         width: 95px;
         height: 38px;
@@ -59,7 +59,7 @@
         width: 95px;
     }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 460px) {
     .dropBtn {
         width: 55px;
         height: 30px;

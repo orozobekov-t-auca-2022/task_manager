@@ -1,9 +1,12 @@
 .btn{
+    --btn-bg-color: #534CC2;
+    --btn-stroke-color: #534CC2;
+
     position: fixed;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #534CC2;
+    background-color: var(--btn-bg-color);
     width: 123px;
     height: 38px;
     outline: none;
@@ -16,14 +19,50 @@
     justify-content: space-between;
     align-items: center;
     font-weight: 400;
-    padding: 0 14px;
+    padding: 0 9px;
+}
+.undoText{
+    width: 65px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
 }
 .btn:hover{
-    background-color: #6C63FF;
+    --btn-bg-color: #6C63FF;
+    --btn-stroke-color: #6C63FF;    
+    background-color: var(--btn-bg-color);
 }
-.btn span{
-    border-radius: 50%;
-    border: 1px solid white;
-    width: 20px;
-    height: 20px;
+.btn span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+.circle circle {
+    fill: none;
+    stroke-width: 2;
+    r: 12;
+    cx: 14;
+    cy: 14;
+}
+.bg {
+    stroke: white;
+}
+.fg {
+    stroke: var(--btn-stroke-color);
+    stroke-dasharray: 81.64;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
 }
