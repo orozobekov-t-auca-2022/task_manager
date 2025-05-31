@@ -21,6 +21,7 @@ function AddNoteButton(){
     }
     function closeForm(){
         setFormOpen(false);
+        reset();
     }
     function onSubmit(data){
         const formData = {
@@ -58,7 +59,7 @@ function AddNoteButton(){
                                 </div>
                                 <div className={styles.dateField}>
                                     <span>Deadline</span>
-                                    <DateField {...register('deadline', {required: 'Deadline is required'})} error={!!errors.title} helperText={errors.deadline?.message}/>
+                                    <DateField {...register('deadline', {required: 'Deadline is required'})} error={!!errors.deadline} helperText={errors.deadline?.message}/>
                                 </div>
                                 <div className={styles.buttonOptions}>
                                     <button onClick={closeForm} className={styles.cancelFormBtn}>cancel</button>

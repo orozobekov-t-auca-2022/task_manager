@@ -15,9 +15,12 @@ function Note(props){
     const dispatch = useDispatch();
     const [clickedEdit, setClickedEdit] = useState(false);
     const {register, handleSubmit, formState: { errors }, reset} = useForm({
-            defaultValues: props.note,
+            defaultValues: {
+                ...props.note,
+                deadline: props.note.deadline ? props.note.deadline.slice(0, 10) : ''
+            },
             resolver: yupResolver(schema)
-        });
+        });        
     function changeStatus(){
         dispatch(changeTaskStatus(props.note));
         window.dispatchEvent(new Event('notes-updated'))
