@@ -8,8 +8,9 @@
 
 Введите следующие команды к себе в терминал(GitBash)
 1. склонируйте репозиторий -> git clone https://github.com/orozobekov-t-auca-2022/task_manager.git
-2. скачайте зависимости    -> npm install
-3. запустите программу     -> npm run dev
+2. зайдите в папку task manager -> cd task_manager/
+3. скачайте зависимости    -> npm install
+4. запустите программу     -> npm run dev
 
 # Использование
 
